@@ -1,0 +1,109 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-primary-light: var(--color-primary-light);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
+  --color-info: var(--color-info);
+  --color-bg-primary: var(--color-bg-primary);
+  --color-bg-secondary: var(--color-bg-secondary);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+}
+
+/* 亮色模式 */
+[data-theme='light'] {
+  /* 核心色板 */
+  --color-primary: #4361ee;
+  --color-primary-light: #4895ef;
+  --color-primary-dark: #3f37c9;
+
+  --color-secondary: #f72585;
+  --color-accent: #4cc9f0;
+
+  /* 功能色 */
+  --color-success: #4ade80;
+  --color-warning: #facc15;
+  --color-error: #f75555;
+  --color-info: #2463eb;
+
+  /* 中性色 */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-50: #f8fafc;
+  --color-gray-100: #f1f5f9;
+  --color-gray-200: #e2e8f0;
+  --color-gray-300: #cbd5e1;
+  --color-gray-400: #94a3b8;
+  --color-gray-500: #64748b;
+  --color-gray-600: #475569;
+  --color-gray-700: #334155;
+  --color-gray-800: #1e293b;
+  --color-gray-900: #0f172a;
+
+  /* 语义变量 */
+  --color-bg-primary: var(--color-white);
+  --color-bg-secondary: var(--color-gray-50);
+  --color-bg-tertiary: var(--color-gray-100);
+
+  --color-text-primary: var(--color-gray-800);
+  --color-text-secondary: var(--color-gray-600);
+  --color-text-tertiary: var(--color-gray-500);
+  --color-heading: var(--color-gray-900);
+
+  --color-border: var(--color-gray-200);
+  --color-border-hover: var(--color-gray-300);
+
+  --color-surface: var(--color-white);
+  --color-surface-elevated: var(--color-white);
+
+  /* 特殊元素 */
+  --color-scrollbar: rgba(0, 0, 0, 0.1);
+  --color-scrollbar-hover: rgba(0, 0, 0, 0.2);
+}
+
+/* 深色模式 */
+[data-theme='dark'] {
+  /* 核心色板 (调整饱和度) */
+  --color-primary: #5a7dff;
+  --color-primary-light: #70a4ff;
+  --color-primary-dark: #4d5df1;
+
+  --color-secondary: #ff4d9e;
+  --color-accent: #6bdbf9;
+
+  /* 功能色 (增加亮度) */
+  --color-success: #6ce99d;
+  --color-warning: #fde047;
+  --color-error: #ff6b6b;
+  --color-info: #4d86ff;
+
+  /* 中性色反转 */
+  --color-bg-primary: #121212;
+  --color-bg-secondary: #1a1a1a;
+  --color-bg-tertiary: #242424;
+
+  --color-text-primary: #e0e0e0;
+  --color-text-secondary: #a0a0a0;
+  --color-text-tertiary: #7a7a7a;
+  --color-heading: #f0f0f0;
+
+  --color-border: #383838;
+  --color-border-hover: #4a4a4a;
+
+  --color-surface: #1e1e1e;
+  --color-surface-elevated: #252525;
+
+  /* 特殊元素 */
+  --color-scrollbar: rgba(255, 255, 255, 0.15);
+  --color-scrollbar-hover: rgba(255, 255, 255, 0.25);
+
+  /* 调整阴影透明度 */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
