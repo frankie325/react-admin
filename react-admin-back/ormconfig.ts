@@ -1,5 +1,5 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { ConfigEnum, LogEnum } from './enum';
+import { ConfigEnum, LogEnum } from './src/common/enums/config.enum';
 
 // typeorm cli无法解析路径别名，使用相对路径
 // import { getEnvConfig, isDevelopment, isTest } from '@/utils/env';

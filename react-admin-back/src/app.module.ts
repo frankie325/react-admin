@@ -10,7 +10,7 @@ import { MenuModule } from './menu/menu.module';
 import { AuthModule } from './auth/auth.module';
 import connectParams from '../ormconfig';
 import { APP_INTERCEPTOR } from '@nestjs/core';
-import { ResponseInterceptor } from './interceptors/response.interceptor';
+import { ResponseInterceptor } from './common/interceptors/response.interceptor';
 
 @Module({
   imports: [

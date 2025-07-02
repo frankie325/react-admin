@@ -1,10 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { getEnvConfig } from '@/utils/env';
-import { ConfigEnum } from '../enum';
+import { ConfigEnum } from './common/enums/config.enum';
 import { ValidationPipe } from '@nestjs/common';
-import { ResponseInterceptor } from './interceptors/response.interceptor';
-import { HttpExceptionFilter } from './filters/http-exception.filter';
+import { ResponseInterceptor } from './common/interceptors/response.interceptor';
+import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(
