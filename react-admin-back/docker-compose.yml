@@ -1,0 +1,20 @@
+# 指定Docker Compose配置文件的版本
+version: '3.1'
+
+services:
+  # 定义docker应用服务，名为 app
+  admin-database:
+    image: mysql
+    # 如果服务非手动停止，Docker会自动尝试重启服务
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    ports:
+      - 3307:3306
+
+    # (this is just an example, not intended to be a production configuration)
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

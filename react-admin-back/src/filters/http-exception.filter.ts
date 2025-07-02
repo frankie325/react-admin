@@ -1,0 +1,25 @@
+import {
+  ExceptionFilter,
+  Catch,
+  ArgumentsHost,
+  HttpException,
+} from '@nestjs/common';
+import { Response } from 'express';
+import { ResponseResult } from '@/utils/response';
+
+// 捕获HTTP异常的过滤器
+// 该过滤器会在发生HTTP异常时被调用，并返回统一的错误响应
+@Catch(HttpException)
+export class HttpExceptionFilter implements ExceptionFilter {
+  catch(exception: HttpException, host: ArgumentsHost) {
+    const ctx = host.switchToHttp();
+    const response = ctx.getResponse<Response>();
+    const status = exception.getStatus();
+
+    console.log(exception);
+
+    response
+      .status(status)
+      .json(ResponseResult.error(null, -1, status, exception.message));
+  }
+}
