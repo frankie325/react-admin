@@ -14,6 +14,8 @@ export class SigninUserDto {
   username: string;
   @IsString()
   @IsNotEmpty()
-  @Length(6, 32)
+  @Length(6, 32, {
+    message: '密码长度必须在$constraint1到$constraint2之间',
+  })
   password: string;
 }

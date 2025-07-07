@@ -18,8 +18,9 @@ export class CreateUserDto {
 
   @IsEmail()
   @IsOptional()
-  email: string;
+  email?: string;
 
   @IsEnum(SexEnum)
-  sex: SexEnum;
+  @IsOptional()
+  sex?: SexEnum;
 }

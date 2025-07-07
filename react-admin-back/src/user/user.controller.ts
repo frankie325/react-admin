@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   BadRequestException,
+  HttpException,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -20,6 +21,7 @@ export class UserController {
   // 查询所有用户
   @Get('/findAllUsers')
   findAll() {
+    // throw new HttpException('自定义错误信息', 400);
     // throw new BadRequestException('This method is not implemented yet.');
     return this.userService.findAll();
   }

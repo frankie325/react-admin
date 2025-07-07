@@ -16,7 +16,8 @@ export class User {
   @Column({ unique: true }) //该字段保持唯一
   username: string;
 
-  @Column({ select: false }) //该字段不被查询
+  // @Column({ select: false }) //该字段不被查询
+  @Column() //该字段不被查询
   password: string;
 
   @Column({
