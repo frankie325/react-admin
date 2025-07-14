@@ -11,14 +11,11 @@ export class AuthService {
   ) {}
   // 登陆接口
   async signin(username: string, password: string) {
-    console.log('----username-----', username);
-    console.log('----password----- ', password);
     const user = await this.userService.findOne(username);
 
     if (!user) {
       throw new ForbiddenException('用户不存在，请注册');
     }
-    console.log('----user----- ', user);
 
     const isPasswordValid = await argon2.verify(user.password, password);
     if (!isPasswordValid) {

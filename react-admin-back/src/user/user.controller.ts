@@ -8,17 +8,20 @@ import {
   Delete,
   BadRequestException,
   HttpException,
+  UseGuards,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { GetUserDto } from './dto/get-user.dto';
+import { JwtAuthGuard } from '@/common/guards/jwt.guard';
 
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
   // 查询所有用户
+  @UseGuards(JwtAuthGuard)
   @Get('/findAllUsers')
   findAll() {
     // throw new HttpException('自定义错误信息', 400);
