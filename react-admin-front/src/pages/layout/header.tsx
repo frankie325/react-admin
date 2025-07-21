@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Layout, theme } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleSiderCollapsed } from '@/store/features/app';
-import { selectCollapsed } from '@/store/features/app';
+import { toggleSiderCollapsed } from '@/store/app';
+import { selectCollapsed } from '@/store/app';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 
 const { Header } = Layout;

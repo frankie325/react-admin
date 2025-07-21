@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
 import { useSelector } from 'react-redux';
-import { selectCollapsed } from '@/store/features/app';
+import { selectCollapsed } from '@/store/app';
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 
 const { Sider } = Layout;
