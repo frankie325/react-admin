@@ -15,6 +15,7 @@ async function bootstrap() {
   );
   app.useGlobalFilters(new HttpExceptionFilter());
   app.useGlobalInterceptors(new ResponseInterceptor());
+  app.enableCors(); //允许跨域
   await app.listen(getEnvConfig(ConfigEnum.PORT) || 3000);
 }
 bootstrap();
