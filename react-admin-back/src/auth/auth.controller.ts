@@ -18,4 +18,10 @@ export class AuthController {
     const { username, password } = dto;
     return this.authService.signup(username, password);
   }
+
+  @Post('/refresh')
+  refreshToken(@Body() dto: { refresh_token: string }) {
+    const { refresh_token } = dto;
+    return this.authService.refreshToken(refresh_token);
+  }
 }

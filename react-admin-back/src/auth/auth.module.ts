@@ -15,7 +15,7 @@ import { JwtStrategy } from './jwt.strategy';
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
         secret: configService.get<string>(ConfigEnum.JWT_SECRET),
-        signOptions: { expiresIn: '1d' }, // 设置JWT的过期时间为1天
+        // signOptions: { expiresIn: '1d' }, // 设置JWT的过期时间为1天
       }),
       inject: [ConfigService],
     }),
