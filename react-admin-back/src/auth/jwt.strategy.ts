@@ -4,11 +4,6 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { ConfigEnum } from '@/common/enums/config.enum';
 
-type JwtPayload = {
-  sub: string;
-  username: string;
-};
-
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private configService: ConfigService) {
