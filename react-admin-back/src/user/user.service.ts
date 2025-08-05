@@ -6,6 +6,7 @@ import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
 import { GetUserDto } from './dto/get-user.dto';
 import { PageData } from '@/utils/response';
+import * as argon2 from 'argon2';
 
 @Injectable()
 export class UserService {
@@ -36,7 +37,8 @@ export class UserService {
     return this.userRepository.findOne({ where: { username } });
   }
 
-  addUser(createUserDto: CreateUserDto) {
+  async addUser(createUserDto: CreateUserDto) {
+    createUserDto.password = await argon2.hash(createUserDto.password);
     const user = this.userRepository.create(createUserDto);
     return this.userRepository.save(user);
   }

@@ -41,9 +41,6 @@ export class AuthService {
     if (user) {
       throw new ForbiddenException('用户名已存在，请更换用户名');
     }
-
-    password = await argon2.hash(password);
-
     return await this.userService.addUser({
       username,
       password,
@@ -58,7 +55,7 @@ export class AuthService {
   async generateToken(user: Pick<User, 'id' | 'username'>) {
     const payload: JwtPayload = { sub: user.id, username: user.username };
     const access_token = await this.jwtService.signAsync(payload, {
-      expiresIn: '1h', // 设置 access_token 的过期时间为 1 小时
+      expiresIn: '1d', // 设置 access_token 的过期时间为 1 小时
     });
     const refresh_token = await this.jwtService.signAsync(payload, {
       expiresIn: '7d', // 设置 refresh_token 的过期时间为 7 天
