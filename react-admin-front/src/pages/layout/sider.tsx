@@ -1,13 +1,23 @@
 import React from 'react';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, type MenuProps } from 'antd';
 import { useSelector } from 'react-redux';
 import { selectCollapsed } from '@/store/app';
-import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import {
+  UploadOutlined,
+  UserOutlined,
+  VideoCameraOutlined,
+} from '@ant-design/icons';
+import { useNavigate } from 'react-router';
 
 const { Sider } = Layout;
 
 const AppSider: React.FC = () => {
   const collapsed = useSelector(selectCollapsed);
+  const navigate = useNavigate();
+  const handleClickMenu: MenuProps['onClick'] = (e) => {
+    // console.log('click ', e);
+    navigate(e.key);
+  };
   return (
     <Sider trigger={null} collapsible collapsed={collapsed}>
       <div className="demo-logo-vertical" />
@@ -31,7 +41,13 @@ const AppSider: React.FC = () => {
             icon: <UploadOutlined />,
             label: 'nav 3',
           },
+          {
+            key: '/userPage',
+            icon: <UploadOutlined />,
+            label: '用户页面',
+          },
         ]}
+        onClick={handleClickMenu}
       />
     </Sider>
   );

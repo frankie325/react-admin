@@ -6,15 +6,17 @@ import { setTokens } from '@/store/user';
 import { useNavigate } from 'react-router';
 
 type FieldType = {
-  username?: string;
-  password?: string;
-  remember?: string;
+  username: string;
+  password: string;
 };
 
 const AccountForm: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const onFinish: FormProps<FieldType>['onFinish'] = async ({ username, password }) => {
+  const onFinish: FormProps<FieldType>['onFinish'] = async ({
+    username,
+    password,
+  }) => {
     const res = await login({
       username,
       password,
@@ -24,13 +26,15 @@ const AccountForm: React.FC = () => {
       setTokens({
         accessToken: res.data.access_token,
         refreshToken: res.data.refresh_token,
-      })
+      }),
     );
 
-    navigate("/");
+    navigate('/');
   };
 
-  const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
+  const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (
+    errorInfo,
+  ) => {
     console.log('Failed:', errorInfo);
   };
 
@@ -45,15 +49,27 @@ const AccountForm: React.FC = () => {
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
-      <Form.Item<FieldType> label="Username" name="username" rules={[{ required: true, message: 'Please input your username!' }]}>
+      <Form.Item<FieldType>
+        label="Username"
+        name="username"
+        rules={[{ required: true, message: 'Please input your username!' }]}
+      >
         <Input />
       </Form.Item>
 
-      <Form.Item<FieldType> label="Password" name="password" rules={[{ required: true, message: 'Please input your password!' }]}>
+      <Form.Item<FieldType>
+        label="Password"
+        name="password"
+        rules={[{ required: true, message: 'Please input your password!' }]}
+      >
         <Input.Password />
       </Form.Item>
 
-      <Form.Item<FieldType> name="remember" valuePropName="checked" label={null}>
+      <Form.Item<FieldType>
+        name="remember"
+        valuePropName="checked"
+        label={null}
+      >
         <Checkbox>Remember me</Checkbox>
       </Form.Item>
 
