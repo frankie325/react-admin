@@ -4,7 +4,16 @@ import postsReducer from '@/store/features/posts/postsSlice';
 import themeReducer from '@/store/features/theme';
 import appReducer from '@/store/app';
 import userReducer from '@/store/user';
-import { persistReducer, persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
+import {
+  persistReducer,
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -16,7 +25,7 @@ const persistedUserReducer = persistReducer(
     key: 'user',
     storage,
   },
-  userReducer
+  userReducer,
 );
 
 const store = configureStore({
@@ -42,9 +51,11 @@ const store = configureStore({
 // 从 store 本身推断 `RootState` 类型
 export type RootState = ReturnType<typeof store.getState>;
 
-export const persistor = persistStore(store);
+export default store;
 
-export default function PersistentStore({ children }: PropsWithChildren) {
+const persistor = persistStore(store);
+
+export function PersistentStore({ children }: PropsWithChildren) {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
