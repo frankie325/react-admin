@@ -34,34 +34,19 @@ const UserPage: React.FC = () => {
     getUserList();
   }, []); // 依赖数组为空，只在首次渲染时执行
   return (
-    <Layout className="h-[calc(100%-16px)] bg-white! m-[16px] p-[16px]">
+    <Layout className="h-[calc(100%-32px)] bg-white! m-[16px] p-[16px]">
       <Header className="bg-white! p-0! flex items-center justify-between">
         <Flex align="center" gap={16}>
-          <Search
-            size="large"
-            placeholder="请输入用户姓名"
-            onSearch={onSearch}
-            style={{ width: 200 }}
-          />
+          <Search size="large" placeholder="请输入用户姓名" onSearch={onSearch} style={{ width: 200 }} />
         </Flex>
         <div>
-          <Button
-            type="primary"
-            size="large"
-            onClick={() => setIsModalOpen(true)}
-          >
+          <Button type="primary" size="large" onClick={() => setIsModalOpen(true)}>
             新增
           </Button>
         </div>
       </Header>
       <Content>
-        <Table<UserEntity>
-          className="table-align h-full"
-          bordered
-          pagination={{ position: ['bottomCenter'] }}
-          columns={columns}
-          dataSource={data}
-        />
+        <Table<UserEntity> className="table-align h-full" bordered pagination={{ position: ['bottomCenter'] }} columns={columns} dataSource={data} />
       </Content>
       <UserFormModal open={isModalOpen} onCancel={onCancel} />
     </Layout>

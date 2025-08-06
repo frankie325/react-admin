@@ -2,11 +2,7 @@ import React from 'react';
 import { Layout, Menu, type MenuProps } from 'antd';
 import { useSelector } from 'react-redux';
 import { selectCollapsed } from '@/store/app';
-import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from '@ant-design/icons';
+import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router';
 
 const { Sider } = Layout;
@@ -42,9 +38,19 @@ const AppSider: React.FC = () => {
             label: 'nav 3',
           },
           {
-            key: '/userPage',
+            key: '/system/userPage',
             icon: <UploadOutlined />,
             label: '用户页面',
+          },
+          {
+            key: '/system/rolePage',
+            icon: <UploadOutlined />,
+            label: '角色页面',
+          },
+          {
+            key: '/system/menuPage',
+            icon: <UploadOutlined />,
+            label: '菜单页面',
           },
         ]}
         onClick={handleClickMenu}
