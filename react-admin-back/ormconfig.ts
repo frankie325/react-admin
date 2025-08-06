@@ -42,11 +42,12 @@ AppDataSource.initialize()
     console.error('Error during Data Source initialization', err);
   });
 /*
-synchronize只会同步表，不会同步数据库架构
+synchronize只会同步数据库架构，不会同步表数据，同步表数据请借助其它工具
 如果需要同步数据库架构，请使用migration
 
-在package.json中添加以下命令：
-"typeorm": "typeorm-ts-node-commonjs", //typeorm cli只认识js文件，需要使用ts-node解析ts文件
+在package.json中添加以下命令：typeorm cli只认识js文件，需要使用ts-node解析ts文件，tsconfig-paths用来识别“@”导入别名
+"typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js", 
+
 "migration:create": "npm run typeorm migration:create ./migrations/migration",
 "migration:generate": "npm run typeorm migration:generate ./migrations/migration -- -d ./ormconfig.ts"
 "migration:run": "npm run typeorm migration:run -- -d ./ormconfig.ts",
